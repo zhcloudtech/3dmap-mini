@@ -1,0 +1,35 @@
+.login-bg {
+  display: block;
+}
+.earth-panel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .title {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 36px;
+    padding-top: 10px;
+  }
+  .earth-img {
+    width: 400px;
+    height: 400px;
+    margin: 100px 0 150px 0;
+  }
+  .login-btn {
+    background-color: #3e82f4;
+    width: 500px;
+    height: 90px;
+    border-radius: 45px;
+    color: #ffffff;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+

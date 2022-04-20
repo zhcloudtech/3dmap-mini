@@ -1,0 +1,9 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "3dmap-mini",
+  "appid": "wx771f628a84e2b1a4",
+  "setting": {
+    "es6": false,
+    "minified": false
+  }
+}
