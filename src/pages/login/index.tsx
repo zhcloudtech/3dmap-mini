@@ -2,6 +2,7 @@
 import { Component } from 'react'
 import { View, Text, Image, Button } from '@tarojs/components'
 import './index.scss'
+import api from '../../api/request'
 
 import Taro from "@tarojs/taro"
 import LoginBg from '../../images/bg.jpg'
@@ -47,20 +48,20 @@ export default class Login extends Component<IProps, PageState> {
       success: (loginInfo) => {
         // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
         console.log(loginInfo)
-        Taro.login({
-          success: (res) => {
-            if (res.code) {
-              //发起网络请求
-              console.log(res)
-              // Taro.request({
-              //   url: 'https://test.com/onLogin',
-              //   data: {
-              //     code: res.code
-              //   }
-              // })
-            } else {
-              console.log('登录失败！' + res.errMsg)
-            }
+        api.post('/wechat/saveUserInfo', {
+          encryptedData: loginInfo.encryptedData,
+          iv: loginInfo.iv
+        }).then((result) => {
+          if (result.data.code === 200) {
+            console.log('success')
+            Taro.showToast({
+              title: '操作成功',
+              icon: 'none',
+              duration: 1500
+            })
+            Taro.redirectTo({
+              url: '/pages/index/index'
+            })
           }
         })
       }
