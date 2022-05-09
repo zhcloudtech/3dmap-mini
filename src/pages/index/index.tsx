@@ -4,6 +4,7 @@ import Taro from '@tarojs/taro'
 import { WebView } from '@tarojs/components'
 import api from '../../api/request'
 import './index.scss'
+import { baseUrl } from '../../utils/config'
 
 type userInfo = {
   avatarUrl: string
@@ -28,7 +29,7 @@ export default class Index extends Component<IProps, PageState> {
   constructor(props) {
     super(props)
     this.state = {
-      baseUrl: 'http://localhost:4000',
+      baseUrl: baseUrl.domain,
       token: '',
       userInfo: {
         avatarUrl: '',
@@ -62,7 +63,7 @@ export default class Index extends Component<IProps, PageState> {
             this.setState({
               token: data.accessToken,
               userInfo: data.userInfo,
-              url: `${baseUrl}?token=${data.accessToken}&name=${data.userInfo.nickName}`
+              url: `${baseUrl}?token=${data.accessToken}&name=${encodeURIComponent(data.userInfo.nickName)}#wechat_redirect`
             })
           })
         } else {

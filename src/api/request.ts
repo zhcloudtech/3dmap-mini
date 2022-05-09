@@ -1,8 +1,9 @@
 import Taro from '@tarojs/taro'
 import { logError } from '../utils/errors'
+import { baseUrl } from '../utils/config'
 
 export default {
-  baseUrl: 'https://clearance-test.zhcloud.tech',
+  baseUrl: baseUrl.requestUrl,
   baseOptions(params, method = 'GET') {
     let { url, data } = params
     let contentType = 'application/json'
