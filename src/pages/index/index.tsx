@@ -83,6 +83,13 @@ export default class Index extends Component<IProps, PageState> {
     console.log('handleMessage', data)
   }
 
+  onShareAppMessage() {
+    return {
+      title: '净空管理小程序',
+      path: '/page/index/index',
+    }
+  }
+
   render () {
     const { url } = this.state
     return (
