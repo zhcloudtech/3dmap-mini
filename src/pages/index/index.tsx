@@ -86,7 +86,7 @@ export default class Index extends Component<IProps, PageState> {
   onShareAppMessage() {
     return {
       title: '净空管理小程序',
-      path: '/page/index/index',
+      path: '/pages/index/index',
     }
   }
 
