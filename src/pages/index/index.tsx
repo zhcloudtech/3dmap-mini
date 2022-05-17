@@ -63,7 +63,7 @@ export default class Index extends Component<IProps, PageState> {
             this.setState({
               token: data.accessToken,
               userInfo: data.userInfo,
-              url: `${baseUrl}?token=${data.accessToken}&name=${encodeURIComponent(data.userInfo.nickName)}#wechat_redirect`
+              url: `${baseUrl}?token=${data.accessToken}#wechat_redirect`
             })
           })
         } else {
