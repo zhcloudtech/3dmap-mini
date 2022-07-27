@@ -108,6 +108,7 @@ export default class Variationt extends Component<IProps, PageState> {
     })
   }
 
+  // 选中机场
   onClick = (item) => {
     Taro.navigateTo({
       url: `/pages/variationtDetail/index?id=${item.id}`
@@ -120,9 +121,9 @@ export default class Variationt extends Component<IProps, PageState> {
   }
   onSearchClick = () => {
     const { searchWorld, airportList } = this.state
-    console.log(searchWorld)
+    // console.log(searchWorld)
     const searchList = airportList.filter(val => (val.name.indexOf(searchWorld) > -1) || (val.icaoCode.toLowerCase().indexOf(searchWorld.toLowerCase()) > -1))
-    console.log(searchList)
+    // console.log(searchList)
     if (searchList && searchList.length) {
       this.transformList(searchList)
     } else {
@@ -133,27 +134,40 @@ export default class Variationt extends Component<IProps, PageState> {
       })
     }
   }
-
+  onClearChange = () => {
+    this.setState({
+      searchWorld: ''
+    })
+    const { airportList } = this.state
+    this.transformList(airportList)
+  }
+  onScroll = () => {
+    console.log(123123)
+  }
 
   render () {
     const { indexList, searchWorld } = this.state
     return (
       <View className='variationt-wrap'>
-        <View className='variationt-empty'></View>
-        <AtIndexes
-          topKey=''
-          list={indexList}
-          isShowToast={false}
-          onClick={this.onClick.bind(this)}
-        >
+        <View className='variationt-empty'>
           <AtSearchBar
-            fixed
-            showActionButton
-            value={this.state.searchWorld}
-            placeholder='输入机场名称或四字代码'
-            onChange={this.onSearchChange.bind(this)}
-            onActionClick={this.onSearchClick.bind(this)} />
-        </AtIndexes>
+              showActionButton
+              value={this.state.searchWorld}
+              placeholder='输入机场名称或四字代码'
+              onClear={this.onClearChange.bind(this)}
+              onChange={this.onSearchChange.bind(this)}
+              onActionClick={this.onSearchClick.bind(this)} />
+        </View>
+        <View className='variationt-content'>
+          <AtIndexes
+            topKey=''
+            list={indexList}
+            isShowToast={false}
+            onClick={this.onClick.bind(this)}
+            // onScrollIntoView={this.onScroll.bind(this)}
+          >
+          </AtIndexes>
+        </View>
       </View>
     )
   }

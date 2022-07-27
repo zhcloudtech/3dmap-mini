@@ -45,7 +45,7 @@
     "pinyin-pro": "3.11.0",
     "react": "17.0.0",
     "react-dom": "17.0.0",
-    "taro-ui": "3.1.0-beta.2"
+    "taro-ui": "3.0.0-alpha.2"
   },
   "devDependencies": {
     "@babel/core": "7.8.0",

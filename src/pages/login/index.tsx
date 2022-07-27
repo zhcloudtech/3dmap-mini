@@ -87,7 +87,7 @@ export default class Login extends Component<IProps, PageState> {
   }
   getPhoneNumber = (e) => {
     const { detail } = e
-    if (detail.errMsg === 'getPhoneNumber:ok') {
+    if (detail.errMsg === 'getPhoneNumber:ok' && detail.code) {
       // console.log('成功', detail)
       api.post('/api/wechat/saveUserPhone', {
         code: detail.code,
@@ -107,6 +107,11 @@ export default class Login extends Component<IProps, PageState> {
         }
       })
     } else {
+      Taro.showToast({
+        title: JSON.stringify(detail),
+        icon: 'none',
+        duration: 2000
+      })
       console.log('失败', detail)
     }
   }

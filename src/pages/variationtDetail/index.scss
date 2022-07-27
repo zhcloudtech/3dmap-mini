@@ -3,26 +3,26 @@
   background-color: #EAF3FF;
   padding: 0 30rpx;
   .detail-empty {
-    height: 26rpx;
+    height: 20rpx;
   }
   .detail-title {
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 28rpx;
+    font-weight: 500;
     color: #000000;
-    padding: 20rpx 0;
+    padding: 20rpx 0 10rpx;
   }
   .detail-input {
     background-color: #FFFFFF;
     border-radius: 6rpx;
     border: 1px solid #4995FF;
-    padding: 20rpx 24rpx;
-    font-size: 30rpx;
+    padding: 18rpx 24rpx;
+    font-size: 28rpx;
   }
   .var-chart {
     width: 650rpx;
     height: 520rpx;
     padding: 20rpx;
-    margin-top: 20rpx;
+    margin-top: 30rpx;
     background: linear-gradient(#66A6FF, #356AEB);
     border-radius: 6rpx;
     #mychart-dom-line {
