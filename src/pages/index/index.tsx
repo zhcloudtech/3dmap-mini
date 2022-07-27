@@ -5,6 +5,7 @@ import { WebView } from '@tarojs/components'
 import api from '../../api/request'
 import './index.scss'
 import { baseUrl } from '../../utils/config'
+import { setGlobalData } from '../../utils/global'
 
 type userInfo = {
   avatarUrl: string
@@ -30,6 +31,7 @@ export default class Index extends Component<IProps, PageState> {
     super(props)
     this.state = {
       baseUrl: baseUrl.domain,
+      // baseUrl: ' http://192.168.31.10:3000',
       token: '',
       userInfo: {
         avatarUrl: '',
@@ -54,12 +56,14 @@ export default class Index extends Component<IProps, PageState> {
       success: (res) => {
         const { code } = res
         if (code) {
-          api.post('/wechat/login', { code }).then((result) => {
+          api.post('/api/wechat/login', { code }).then((result) => {
             const { data } = result.data
             const { baseUrl } = this.state
             try {
               Taro.setStorageSync('token', data.accessToken)
             } catch (e) {}
+            setGlobalData('userName', data.userInfo.nickName)
+            setGlobalData('userPhone', data.userInfo.phone)
             this.setState({
               token: data.accessToken,
               userInfo: data.userInfo,

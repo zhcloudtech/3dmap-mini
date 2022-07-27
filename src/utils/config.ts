@@ -5,18 +5,18 @@ const BaseUrl = {
   domain: 'https://3dmap.zhcloud.tech',
   // https://clearance.zhcloud.tech
   // https://clearance-test.zhcloud.tech
-  requestUrl: 'https://clearance.zhcloud.tech'
+  requestUrl: 'https://3dmap.zhcloud.tech'
 }
 const env = process.env.NODE_ENV === 'development' ? 'development' : 'production'
 console.log(process.env.NODE_ENV)
 switch (env) {
     case 'development':
       BaseUrl.domain = 'https://3dmap-test.zhcloud.tech'
-      BaseUrl.requestUrl = 'https://clearance-test.zhcloud.tech'
+      BaseUrl.requestUrl = 'https://3dmap-test.zhcloud.tech'
         break
     case 'production':
       BaseUrl.domain = 'https://3dmap.zhcloud.tech'
-      BaseUrl.requestUrl = 'https://clearance.zhcloud.tech'
+      BaseUrl.requestUrl = 'https://3dmap.zhcloud.tech'
         break
 }
 export const baseUrl = BaseUrl

@@ -21,8 +21,15 @@
         },
         {
           "name": "",
-          "pathName": "pages/index/index",
+          "pathName": "pages/variationt/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/variationtDetail/index",
+          "query": "id=1000",
           "scene": null,
           "launchMode": "default"
         }

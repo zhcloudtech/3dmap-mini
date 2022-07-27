@@ -1,0 +1,33 @@
+.variationt-detail {
+  min-height: 100vh;
+  background-color: #EAF3FF;
+  padding: 0 30rpx;
+  .detail-empty {
+    height: 26rpx;
+  }
+  .detail-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #000000;
+    padding: 20rpx 0;
+  }
+  .detail-input {
+    background-color: #FFFFFF;
+    border-radius: 6rpx;
+    border: 1px solid #4995FF;
+    padding: 20rpx 24rpx;
+    font-size: 30rpx;
+  }
+  .var-chart {
+    width: 650rpx;
+    height: 520rpx;
+    padding: 20rpx;
+    margin-top: 20rpx;
+    background: linear-gradient(#66A6FF, #356AEB);
+    border-radius: 6rpx;
+    #mychart-dom-line {
+      width: 650rpx;
+      height: 520rpx;
+    }
+  }
+}
