@@ -16,6 +16,12 @@ type PageState = {
   userPhone: string,
 };
 
+type PhoneNumberInfo = {
+  code?: string;
+  iv?: string;
+  encryptedData?: string;
+}
+
 type IProps = {}
 
 export default class Login extends Component<IProps, PageState> {
@@ -87,17 +93,21 @@ export default class Login extends Component<IProps, PageState> {
   }
   getPhoneNumber = (e) => {
     const { detail } = e
-    if (detail.errMsg === 'getPhoneNumber:ok' && detail.code) {
-      // console.log('成功', detail)
-      api.post('/api/wechat/saveUserPhone', {
-        code: detail.code,
-      }).then((result) => {
+    if (detail.errMsg === 'getPhoneNumber:ok') {
+      const params: PhoneNumberInfo = {}
+      if (detail.code) {
+        params.code = detail.code
+      } else {
+        params.iv = detail.iv
+        params.encryptedData = detail.encryptedData
+      }
+      api.post('/api/wechat/saveUserPhone', params).then((result) => {
         const { code } = result.data
         if (code === 200) {
           this.setState({
-            userPhone: detail.code
+            userPhone: '1'
           })
-          setGlobalData('userPhone', detail.code)
+          setGlobalData('userPhone', '1')
           const { userName } = this.state
           if (userName) {
             Taro.redirectTo({
