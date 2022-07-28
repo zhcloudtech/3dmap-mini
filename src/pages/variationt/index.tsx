@@ -155,6 +155,7 @@ export default class Variationt extends Component<IProps, PageState> {
               value={this.state.searchWorld}
               placeholder='输入机场名称或四字代码'
               onClear={this.onClearChange.bind(this)}
+              onBlur={this.onSearchClick.bind(this)}
               onChange={this.onSearchChange.bind(this)}
               onActionClick={this.onSearchClick.bind(this)} />
         </View>
